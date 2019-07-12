@@ -1,0 +1,36 @@
+[include]
+  path = .gitconfig.local
+[color]
+  # colorの設定(以下のコマンドは自動で色つける)
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  grep = auto
+ [push]
+	default = current
+ [core]
+  excludesfile = ~/.gitignore
+  autocrlf = input                 # CRLFを自動変換
+  editor = vim
+  quotepath = false
+ [alias]
+  s   = status
+  st  = status
+  ss  = status -s
+  sh  = show
+  ft  = fetch
+  ftp = fetch --prune
+  up  = pull --rebase
+  po  = push origin
+  rbc = rebase --continue
+  rba = rebase --abort
+  rbi = rebase i
+  ad  = add
+  c   = commit
+  br  = branch
+  ba  = branch -a
+  ls  = log --stat
+  lp  = log -p              # diffも一緒に出す
+  la  = log --pretty=\"format:%ad %h (%an): %s\" --date=short
+ 
