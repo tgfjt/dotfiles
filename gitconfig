@@ -12,7 +12,7 @@
  [core]
   excludesfile = ~/.gitignore
   autocrlf = input                 # CRLFを自動変換
-  editor = vim
+# editor = vim
   quotepath = false
  [alias]
   s   = status
@@ -28,9 +28,19 @@
   rbi = rebase i
   ad  = add
   c   = commit
+  cb  = checkout -b
+  co  = checkout
   br  = branch
   ba  = branch -a
   ls  = log --stat
   lp  = log -p              # diffも一緒に出す
   la  = log --pretty=\"format:%ad %h (%an): %s\" --date=short
  
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Takashi Fujita
+	email = tgfjt.mail@gmail.com
