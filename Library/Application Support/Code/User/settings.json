@@ -1,0 +1,117 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "editor.cursorBlinking": "phase",
+    "editor.renderIndentGuides": true,
+    "editor.renderLineHighlight": "all",
+    "editor.fontFamily": "FiraCode Nerd Font Mono",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.minimap.enabled": true,
+    "editor.multiCursorModifier": "alt",
+    "css.validate": false,
+    "emmet.syntaxProfiles": {
+      "javascript": "html"
+    },
+    "emmet.includeLanguages": {
+      "erb": "html"
+    },
+    "window.zoomLevel": 0,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.iconTheme": "vs-seti",
+    "workbench.colorCustomizations": {
+      "editor.selectionBackground": "#587b9b",
+      "editor.findMatchBackground": "#51849f",
+      "editor.findMatchHighlightBackground": "#51748f",
+      "editor.findRangeHighlightBackground": "#51648f"
+    },
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "meta.brace,punctuation",
+          "settings": {
+            "foreground": "#847d80"
+          }
+        },
+        {
+          "scope": "meta.property-value",
+          "settings": {
+            "foreground": "#847d80"
+          }
+        },
+        {
+          "scope": "comment",
+          "settings": {
+            "foreground": "#645d70"
+          }
+        }
+      ]
+    },
+    "indentRainbow.colors": [
+      "rgba(64,64,16,0.4)",
+      "rgba(32,64,32,0.4)",
+      "rgba(64,32,64,0.4)",
+      "rgba(16,48,64,0.4)",
+      "rgba(64,48,32,0.4)"
+    ],
+    "gitlens.advanced.messages": {
+      "suppressCommitHasNoPreviousCommitWarning": false,
+      "suppressCommitNotFoundWarning": false,
+      "suppressFileNotUnderSourceControlWarning": false,
+      "suppressGitVersionWarning": false,
+      "suppressLineUncommittedWarning": false,
+      "suppressNoRepositoryWarning": false,
+      "suppressResultsExplorerNotice": false,
+      "suppressShowKeyBindingsNotice": true,
+      "suppressUpdateNotice": false,
+      "suppressWelcomeNotice": true
+    },
+    "gitlens.keymap": "alternate",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.startupEditor": "newUntitledFile",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "vscode_custom_css.imports": [
+      // "file:///Users/tgfjt/synthwave84.css"
+    ],
+    "vscode_custom_css.policy": true,
+    "typescript.tsserver.log": "verbose",
+    "debug.console.fontSize": 14,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "go.toolsEnvVars": {
+      "GO111MODULE": "on"
+    },
+    "go.useLanguageServer": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[typescript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescriptreact]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.colorTheme": "Tokyo Night",
+    "files.associations": {
+      "*.tmpl": "html"
+    },
+    "[html]": {
+      "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "eslint.workingDirectories": [
+      { "mode": "auto" }
+    ],
+    "[php]": {
+      "editor.defaultFormatter": "kokororin.vscode-phpfmt"
+    },
+    "go.toolsManagement.autoUpdate": true
+  }
+  
