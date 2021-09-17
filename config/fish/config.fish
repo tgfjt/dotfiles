@@ -2,8 +2,11 @@ set -x EDITOR code --wait
 
 set fish_greeting
 
+### brew
+eval (/opt/homebrew/bin/brew shellenv)
+
 ### GOLANG
-set -x GOROOT /usr/local/opt/go/libexec
+#set -x GOROOT /usr/local/opt/go/libexec
 set -x GOPATH $HOME/dev
 
 ### PATH
@@ -26,8 +29,7 @@ set -x PATH $PATH (ghq root)/github.com/tgfjt/commands
 set -x PATH $PATH $HOME/workspace/depot_tools
 
 ### rbenv
-set -x RBENV_ROOT /usr/local/var/rbenv
-rbenv init - | source
+status --is-interactive; and source (rbenv init -|psub)
 
 ## Alias
 alias tmls 'tmux ls'
