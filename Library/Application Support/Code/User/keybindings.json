@@ -34,5 +34,10 @@
     "key": "ctrl+space",
     "command": "-toggleSuggestionDetails",
     "when": "suggestWidgetVisible && textInputFocus"
-  }
+  },
+  {
+    "key": "cmd+[",
+    "command": "outdent",
+    "when": "editorTextFocus && !editorReadonly"
+  },
 ]

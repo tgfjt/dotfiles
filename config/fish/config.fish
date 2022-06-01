@@ -25,9 +25,10 @@ set -x PATH $PATH $HOME/.deno/bin
 set -x PATH $HOME/workspace/google-cloud-sdk/platform/google_appengine $PATH
 set -x PATH $HOME/.ebcli-virtual-env/executables $PATH
 set -x PATH $PATH (ghq root)/github.com/tgfjt/commands
+set -x PATH $PATH (ghq root)/chromium.googlesource.com/chromium/tools/depot_tools
 
 set -x PATH $PATH $HOME/workspace/depot_tools
-
+set -x PATH $PATH /opt/homebrew/opt/libpq/bin
 ### rbenv
 status --is-interactive; and source (rbenv init -|psub)
 
@@ -59,7 +60,7 @@ function fish_user_key_bindings
   bind \c] peco_select_repository # Bind for prco change directory to Ctrl+]
 end
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '$HOME/workspace/google-cloud-sdk/path.fish.inc' ]; . '$HOME/workspace/google-cloud-sdk/path.fish.inc'; end
-
 source ~/.iterm2_shell_integration.fish
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/tgfjt/workspace/google-cloud-sdk/path.fish.inc' ]; . '/Users/tgfjt/workspace/google-cloud-sdk/path.fish.inc'; end

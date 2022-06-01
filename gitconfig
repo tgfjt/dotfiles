@@ -14,6 +14,7 @@
   autocrlf = input                 # CRLFを自動変換
 # editor = vim
   quotepath = false
+  pager = delta
  [alias]
   s   = status
   st  = status
@@ -44,3 +45,17 @@
 [user]
 	name = Takashi Fujita
 	email = tgfjt.mail@gmail.com
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+[http]
+	cookiefile = /Users/tgfjt/.gitcookies

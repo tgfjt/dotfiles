@@ -19,9 +19,8 @@
     "emmet.includeLanguages": {
       "erb": "html"
     },
-    "window.zoomLevel": 0,
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.iconTheme": "vs-seti",
+    "workbench.iconTheme": "material-icon-theme",
     "workbench.colorCustomizations": {
       "editor.selectionBackground": "#587b9b",
       "editor.findMatchBackground": "#51849f",
@@ -94,12 +93,12 @@
       "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[javascript]": {
       "editor.defaultFormatter": "vscode.typescript-language-features"
     },
-    "workbench.colorTheme": "Tokyo Night",
+    "workbench.colorTheme": "Night Owl (No Italics)",
     "files.associations": {
       "*.tmpl": "html"
     },
@@ -112,6 +111,9 @@
     "[php]": {
       "editor.defaultFormatter": "kokororin.vscode-phpfmt"
     },
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "workbench.editor.enablePreview": false
   }
   
