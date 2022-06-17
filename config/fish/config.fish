@@ -1,7 +1,5 @@
 set -x EDITOR code --wait
 
-set fish_greeting
-
 ### brew
 eval (/opt/homebrew/bin/brew shellenv)
 
@@ -29,38 +27,34 @@ set -x PATH $PATH (ghq root)/chromium.googlesource.com/chromium/tools/depot_tool
 
 set -x PATH $PATH $HOME/workspace/depot_tools
 set -x PATH $PATH /opt/homebrew/opt/libpq/bin
-### rbenv
-status --is-interactive; and source (rbenv init -|psub)
+
+set -U Z_CMD "j"
 
 ## Alias
-alias tmls 'tmux ls'
-alias tma 'tmux a -t'
 alias gst "git st"
 alias codew "code --wait"
+alias br 'git branch | sed -r "s/^[ \*]+//" | peco'
 
-function peco_select_history
-  if set -q $argv
-    history | peco | read line; commandline $line
-  else
-    history | peco --query $argv | read line; commandline $line
-  end
-end
+## Abbr
 
-function peco_select_repository
-  if set -q $argv
-    repos | peco | read line; builtin cd $line
+
+function g
+  if test (count $argv) -gt 0
+    git $argv
   else
-    ghq list -p | peco --query $argv | read line; builtin cd $line
+    git s
   end
-  set -e line
 end
 
 function fish_user_key_bindings
-  bind \cr peco_select_history # Bind for prco history to Ctrl+r
-  bind \c] peco_select_repository # Bind for prco change directory to Ctrl+]
+  bind \cr 'peco_select_history (commandline -b)' # Bind for prco history to Ctrl+r
+  bind \c] 'stty sane; peco_select_ghq_repository' # Bind for prco change directory to Ctrl+]
 end
-
-source ~/.iterm2_shell_integration.fish
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/tgfjt/workspace/google-cloud-sdk/path.fish.inc' ]; . '/Users/tgfjt/workspace/google-cloud-sdk/path.fish.inc'; end
+
+
+omf theme l
+set fish_greeting
+
