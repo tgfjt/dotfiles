@@ -4,8 +4,11 @@ set -x EDITOR code --wait
 eval (/opt/homebrew/bin/brew shellenv)
 
 ### GOLANG
+
 #set -x GOROOT /usr/local/opt/go/libexec
-set -x GOPATH $HOME/dev
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
+#set -x GOPATH $HOME/dev
+set -x GOPATH (go env GOPATH)
 
 ### PATH
 set -x PATH $PATH ./vendor/bin
@@ -48,13 +51,40 @@ end
 
 function fish_user_key_bindings
   bind \cr 'peco_select_history (commandline -b)' # Bind for prco history to Ctrl+r
-  bind \c] 'stty sane; peco_select_ghq_repository' # Bind for prco change directory to Ctrl+]
+  bind ] 'stty sane; peco_select_ghq_repository' # Bind for prco change directory to Ctrl+]
 end
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/tgfjt/workspace/google-cloud-sdk/path.fish.inc' ]; . '/Users/tgfjt/workspace/google-cloud-sdk/path.fish.inc'; end
 
-
+# https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#l
 omf theme l
 set fish_greeting
 
+~/.local/bin/mise activate fish | source
+
+# pnpm
+set -gx PNPM_HOME "/Users/tgfjt/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
+
+starship init fish | source
+
+# Added by Windsurf
+fish_add_path /Users/tgfjt/.codeium/windsurf/bin
+
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# Claude Code
+set -x ENABLE_BACKGROUND_TASKS 1
+set -x FORCE_AUTO_BACKGROUND_TASKS 1
+
+alias cc '~/.claude/hooks/manual-tweet.sh'
+
+# kiro
+string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)

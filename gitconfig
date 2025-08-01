@@ -57,5 +57,10 @@
 
 [diff]
     colorMoved = default
+    algorithm = histogram
 [http]
 	cookiefile = /Users/tgfjt/.gitcookies
+[init]
+	defaultBranch = main
+[commit]
+  verbose = true

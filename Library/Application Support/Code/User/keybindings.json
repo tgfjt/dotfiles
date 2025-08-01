@@ -40,4 +40,12 @@
     "command": "outdent",
     "when": "editorTextFocus && !editorReadonly"
   },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
+  },
 ]
