@@ -27,6 +27,6 @@ if [ ! -f "$log_file" ]; then
 fi
 
 # Add the tweet
-echo "- $timestamp [manual] $*" >> "$log_file"
+echo "- $timestamp $*" >> "$log_file"
 
 echo "記録しました: $*"
