@@ -4,7 +4,7 @@
   "editor.renderControlCharacters": true,
   "editor.cursorBlinking": "phase",
   "editor.renderLineHighlight": "all",
-  "editor.fontFamily": "Google Sans Code",
+  "editor.fontFamily": "Intel One Mono",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
   "editor.tabSize": 2,
@@ -140,5 +140,10 @@
     "googlecloudtools.firebase-dataconnect-vscode",
     "google.geminicodeassist"
   ],
-  "remote.autoForwardPortsSource": "hybrid"
+  "remote.autoForwardPortsSource": "hybrid",
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "{hexdiff}:/**/*.*": "hexEditor.hexedit",
+    "*.svg": "default"
+  }
 }

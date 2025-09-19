@@ -1,14 +1,19 @@
 set -x EDITOR code --wait
 
 ### brew
-eval (/opt/homebrew/bin/brew shellenv)
+# Static homebrew environment (faster than eval)
+set -gx HOMEBREW_PREFIX "/opt/homebrew"
+set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
+set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
+fish_add_path --global --move --path "/opt/homebrew/bin" "/opt/homebrew/sbin"
+# eval (/opt/homebrew/bin/brew shellenv)  # original (slower)
 
 ### GOLANG
-
-#set -x GOROOT /usr/local/opt/go/libexec
-source /opt/homebrew/opt/asdf/libexec/asdf.fish
-#set -x GOPATH $HOME/dev
-set -x GOPATH (go env GOPATH)
+# miseでGoを管理
+if command -v go > /dev/null
+    set -x GOPATH (go env GOPATH)
+    set -x GOBIN $GOPATH/bin
+end
 
 ### PATH
 set -x PATH $PATH ./vendor/bin
@@ -25,8 +30,10 @@ set -x PATH $PATH $HOME/flutter/.pub-cache/bin
 set -x PATH $PATH $HOME/.deno/bin
 set -x PATH $HOME/workspace/google-cloud-sdk/platform/google_appengine $PATH
 set -x PATH $HOME/.ebcli-virtual-env/executables $PATH
-set -x PATH $PATH (ghq root)/github.com/tgfjt/commands
-set -x PATH $PATH (ghq root)/chromium.googlesource.com/chromium/tools/depot_tools
+# ghq paths (cached)
+set -l ghq_root_path ~/ghq  # or use: set -l ghq_root_path (ghq root) once
+set -x PATH $PATH $ghq_root_path/github.com/tgfjt/commands
+set -x PATH $PATH $ghq_root_path/chromium.googlesource.com/chromium/tools/depot_tools
 
 set -x PATH $PATH $HOME/workspace/depot_tools
 set -x PATH $PATH /opt/homebrew/opt/libpq/bin
@@ -37,6 +44,7 @@ set -U Z_CMD "j"
 alias gst "git st"
 alias codew "code --wait"
 alias br 'git branch | sed -r "s/^[ \*]+//" | peco'
+alias storage "df -h / | tail -1 | awk '{print \"💾 Storage: \" \$3 \" / \" \$2 \" (\" \$5 \" used)\"}'"
 
 ## Abbr
 
@@ -59,7 +67,8 @@ if [ -f '/Users/tgfjt/workspace/google-cloud-sdk/path.fish.inc' ]; . '/Users/tgf
 
 # https://github.com/oh-my-fish/oh-my-fish/blob/master/docs/Themes.md#l
 omf theme l
-set fish_greeting
+# シンプルなグリーティング（または削除してもOK）
+set fish_greeting ""
 
 ~/.local/bin/mise activate fish | source
 
@@ -86,5 +95,5 @@ set -x FORCE_AUTO_BACKGROUND_TASKS 1
 
 alias cc '~/.claude/hooks/manual-tweet.sh'
 
-# kiro
-string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+# kiro (disabled - too slow)
+# string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
